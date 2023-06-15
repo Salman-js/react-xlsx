@@ -4,7 +4,6 @@ class File extends Model {
   public id!: number;
   public filename!: string;
   public path!: string;
-  // Other model fields...
 
   public static initialize(sequelize: Sequelize): void {
     this.init(
@@ -22,7 +21,6 @@ class File extends Model {
           type: DataTypes.STRING,
           allowNull: false,
         },
-        // Define other fields here...
       },
       {
         sequelize,
