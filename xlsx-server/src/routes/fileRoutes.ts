@@ -47,11 +47,9 @@ router.put(
         return res.status(404).json({ message: 'File not found' });
       }
 
-      // Delete the existing file from the file system
       const filePath = path.join(__dirname, `../uploads/${file.filename}`);
       fs.unlinkSync(filePath);
 
-      // Update the file with the edited version
       //@ts-ignore
       file.filename = req.file.filename;
       //@ts-ignore
@@ -78,11 +76,9 @@ router.delete('/files/:filename', async (req: Request, res: Response) => {
       return res.status(404).json({ message: 'File not found' });
     }
 
-    // Delete the file from the file system
     const filePath = path.join(__dirname, `../uploads/${file.filename}`);
     fs.unlinkSync(filePath);
 
-    // Remove the file row from the database
     await file.destroy();
 
     res.status(200).json({ message: 'File deleted successfully' });
