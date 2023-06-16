@@ -196,7 +196,7 @@ const ImportCloudTable = () => {
       <Table
         dataSource={tableData}
         columns={[...columns, { title: 'Actions', render: renderDeleteButton }]}
-        rowKey={(record) => Object.values(record).join('_')}
+        rowKey={(record) => record.id}
         bordered
         footer={() => (
           <>
